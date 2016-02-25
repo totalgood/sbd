@@ -1,9 +1,3 @@
-import pkg_resources
-
-try:
-    __version__ = pkg_resources.get_distribution(__name__).version
-except:
-    __version__ = '0.3.0'
 # Copyright (c) 2014 Kyle Gorman <gormanky@ohsu.edu>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
@@ -24,7 +18,12 @@ except:
 # CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+import pkg_resources
 
+from sbd.detector import Detector, slurp
+from sbd.ptbtokenizer import word_tokenize
 
-from .detector import Detector, slurp
-from .ptbtokenizer import word_tokenize
+try:
+    __version__ = pkg_resources.get_distribution(__name__).version
+except:
+    __version__ = '0.3.0'
