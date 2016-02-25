@@ -2,4 +2,10 @@
 Developers
 ==========
 
-* Hobson Lane <hobsonlane@gmail.com>
+* Kyle Gorman <hobsonlane@gmail.com>
+
+============
+Contributors
+============
+
+* Hobson Lane <hobson@totalgood.com>
