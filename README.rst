@@ -1,19 +1,11 @@
-===
-sbd
-===
+# sbd
 
+Sentence boundary detection by Kyle Gorman (under the name "DetectorMorse" in 2015) repackaged and maintained by Hobson Lane in 2016.
 
-Repackaged sentence boundary detection by Kyle Gorman (originally named "DetectorMorse")
+## Description
 
+A single-layer perceptron (fully-connected linear neural network) for detecting sentence boundaries and generating a sequence of sentences from a text file or string. For more information on the architecture see Kyle Gorman's [talks and documentation](https://github.com/cslu-nlp/DetectorMorse).
 
-Description
-===========
+## PyScaffold Rocks!
 
-A LONGER DESCRIPTION OF YOUR PROJECT GOES HERE...
-
-
-Note
-====
-
-This project has been set up using PyScaffold 2.4.4. For details and usage
-information on PyScaffold see http://pyscaffold.readthedocs.org/.
+This project was set up using PyScaffold. See [pyscaffold.readthedocs.org](http://pyscaffold.readthedocs.org/) to find out how you too can build your stuff with good scaffolding. I've added a git pre-commit hook that automates only last little bit, the generation of *.rst files from *.md.

@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-    Setup file for sbd.
-
-    This file was generated with PyScaffold 2.4.4, a tool that easily
-    puts up a scaffold for your new Python project. Learn more under:
-    http://pyscaffold.readthedocs.org/
-"""
+"""Setup file for sbd."""
 
 import sys
 from setuptools import setup

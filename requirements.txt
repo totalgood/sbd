@@ -1,4 +1,7 @@
 # Add your requirements here like:
 # numpy
 # scipy>=0.9
+nlup>=0.3.0
 
+-e git://github.com/cslu-nlp/nlup.git#egg=nlup
+jsonpickle==0.8.0
