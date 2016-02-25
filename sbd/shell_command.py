@@ -95,7 +95,6 @@ def main(args):
         if args.verbose or args.really_verbose:
             cx.pprint()
         print(cx.summary)
-
     log.info("Finished generating sentences")
 
 
