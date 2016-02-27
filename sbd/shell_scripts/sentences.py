@@ -13,7 +13,7 @@ import logging
 import os
 
 from nlup.decorators import IO
-from .detector import Detector, slurp, EPOCHS
+from sbd.detector import Detector, slurp, EPOCHS
 
 LOGGING_FMT = "%(module)s.%(function)s:%(lineno)d %(message)s"
 DEFAULT_MODEL_PATH = os.path.join('data', 'trained-detector-wsj-ptb.json.gz')
@@ -46,7 +46,7 @@ def parse_args(args):
     inp_group = parser.add_mutually_exclusive_group(required=True)
     inp_group.add_argument("-t", "--train", help="training data")
     inp_group.add_argument("-r", "--read",
-                           default=os.path.join(os.path.dirname(os.pathabspath(__file__)), DEFAULT_MODEL_PATH),
+                           default=os.path.join(os.path.dirname(os.path.abspath(__file__)), DEFAULT_MODEL_PATH),
                            help="load a previously trained perceptron sentence detector model")
     out_group = parser.add_mutually_exclusive_group(required=True)
     out_group.add_argument("-s", "--segment", help="segment sentences")
