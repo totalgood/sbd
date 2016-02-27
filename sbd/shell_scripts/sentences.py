@@ -42,11 +42,11 @@ def parse_args(args):
         action='version',
         version='sbd {ver}'.format(ver=__version__))
     parser.add_argument("-v", "--verbose", action="count", default=0,
-                           help="enable verbose output")
+                        help="Verbose output. May be repeated for greater verbosity")
     inp_group = parser.add_mutually_exclusive_group(required=True)
     inp_group.add_argument("-t", "--train", help="training data")
     inp_group.add_argument("-r", "--read",
-                           default=os.path.dirname(os.pathabspath(__file__)), DEFAULT_MODEL_PATH)
+                           default=os.path.join(os.path.dirname(os.pathabspath(__file__)), DEFAULT_MODEL_PATH),
                            help="load a previously trained perceptron sentence detector model")
     out_group = parser.add_mutually_exclusive_group(required=True)
     out_group.add_argument("-s", "--segment", help="segment sentences")
@@ -73,8 +73,7 @@ def main(args):
     detector = None
     if args.train:
         logging.info("Training model on '{}'.".format(args.train))
-        detector = Detector(slurp(args.train), epochs=args.epochs,
-                                               nocase=args.nocase)
+        detector = Detector(slurp(args.train), epochs=args.epochs, nocase=args.nocase)
     elif args.read:
         logging.info("Reading pretrained model '{}'.".format(args.read))
         detector = IO(Detector.load)(args.read)
