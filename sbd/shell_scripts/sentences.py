@@ -43,10 +43,10 @@ def parse_args(args):
         version='sbd {ver}'.format(ver=__version__))
     parser.add_argument("-v", "--verbose", action="count", default=0,
                         help="Verbose output. May be repeated for greater verbosity")
-    inp_group = parser.add_mutually_exclusive_group(required=True)
+    inp_group = parser.add_mutually_exclusive_group(required=False)
     inp_group.add_argument("-t", "--train", help="training data")
     inp_group.add_argument("-r", "--read",
-                           default=os.path.join(os.path.dirname(os.path.abspath(__file__)), DEFAULT_MODEL_PATH),
+                           default=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), DEFAULT_MODEL_PATH),
                            help="load a previously trained perceptron sentence detector model")
     out_group = parser.add_mutually_exclusive_group(required=True)
     out_group.add_argument("-s", "--segment", help="segment sentences")
@@ -63,13 +63,14 @@ def parse_args(args):
 
 def main(args):
     args = parse_args(args)
-    if args.really_verbose:
-        log.basicConfig(format=LOGGING_FMT, level="DEBUG")
+    if args.verbose > 1:
+        logging.basicConfig(format=LOGGING_FMT, level="DEBUG")
     elif args.verbose:
-        log.basicConfig(format=LOGGING_FMT, level="INFO")
+        logging.basicConfig(format=LOGGING_FMT, level="INFO")
     else:
-        log.basicConfig(format=LOGGING_FMT)
+        logging.basicConfig(format=LOGGING_FMT)
 
+    log.warn('{}'.format(args))
     detector = None
     if args.train:
         logging.info("Training model on '{}'.".format(args.train))
