@@ -41,11 +41,8 @@ def parse_args(args):
         '--version',
         action='version',
         version='sbd {ver}'.format(ver=__version__))
-    vrb_group = parser.add_mutually_exclusive_group()
-    vrb_group.add_argument("-v", "--verbose", action="store_true",
+    parser.add_argument("-v", "--verbose", action="count", default=0,
                            help="enable verbose output")
-    vrb_group.add_argument("-V", "--really-verbose", action="store_true",
-                           help="enable even more verbose output")
     inp_group = parser.add_mutually_exclusive_group(required=True)
     inp_group.add_argument("-t", "--train", help="training data")
     inp_group.add_argument("-r", "--read",
@@ -61,7 +58,6 @@ def parse_args(args):
                         help="# of epochs (default: {})".format(EPOCHS))
     parser.add_argument("-C", "--nocase", action="store_true",
                         help="disable case features")
-    args = parser.parse_args()
     return parser.parse_args(args)
 
 
@@ -105,6 +101,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-
-
-
