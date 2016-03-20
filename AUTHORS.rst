@@ -2,7 +2,7 @@
 Developers
 ==========
 
-* Kyle Gorman <hobsonlane@gmail.com>
+* Kyle Gorman <twitter @wellformedness>
 
 ============
 Contributors
